@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package sample
+package main
 
 import org.junit.AfterClass
 import org.junit.BeforeClass
@@ -39,7 +39,7 @@ import static org.junit.Assert.assertEquals
  * 
  * @author Dave Syer
  */
-public class SampleApplicationTests {
+public class AddressServiceApplicationTests {
 
 	private static ConfigurableApplicationContext context
 
@@ -51,7 +51,7 @@ public class SampleApplicationTests {
 							@Override
 							public ConfigurableApplicationContext call() throws Exception {
 								return SpringApplication
-										.run(SampleApplication.class)
+										.run(AddressServiceApplication.class)
 							}
 						})
 		context = future.get(60, TimeUnit.SECONDS)
@@ -62,17 +62,6 @@ public class SampleApplicationTests {
 		if (context != null) {
 			context.close()
 		}
-	}
-
-	@Test
-	void testHome() throws Exception {
-		@SuppressWarnings("rawtypes")
-		ResponseEntity<Map> entity = getRestTemplate().getForEntity(
-				"http://localhost:8080", Map.class)
-		assertEquals(HttpStatus.OK, entity.getStatusCode())
-		@SuppressWarnings("unchecked")
-		Map<String, Object> body = entity.getBody()
-		assertEquals("Hello World", body.get("message"))
 	}
 
 	@Test

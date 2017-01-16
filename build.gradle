@@ -7,7 +7,7 @@ targetCompatibility = "1.8"
 
 version = "${version}"
 group = "${group}"
-mainClassName = "sample.SampleApplication"
+mainClassName = "main.AddressServiceApplication"
 
 buildscript {
     ext {
@@ -36,5 +36,7 @@ dependencies {
     compile "org.codehaus.groovy:groovy"
     compile "org.springframework.boot:spring-boot-starter-web"
     compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile "org.springframework.boot:spring-boot-starter-data-jpa"
+    compile "org.hsqldb:hsqldb"
     testCompile "org.springframework.boot:spring-boot-starter-test"
 }
