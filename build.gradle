@@ -27,6 +27,7 @@ jar {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
@@ -38,5 +39,8 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-actuator"
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
     compile "org.hsqldb:hsqldb"
+    compile "org.projectlombok:lombok"
+    compile "org.springframework.boot:spring-boot-configuration-processor"
+    compile "no.difi.move-common:cloud:1.0.9-SNAPSHOT"
     testCompile "org.springframework.boot:spring-boot-starter-test"
 }

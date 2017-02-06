@@ -3,16 +3,16 @@ package no.difi.ks_svarut.domain
 import groovy.transform.Canonical
 
 import javax.persistence.Entity
+import javax.persistence.GeneratedValue
 import javax.persistence.Id
-import javax.persistence.ManyToOne
 
 @Canonical
 @Entity
-class Organization {
+class PemCertificate {
     @Id
-    String organizationId
-    URL url
+    @GeneratedValue
+    int certificateId
 
-    @ManyToOne
-    PemCertificate certificate
+    String name
+    String value
 }

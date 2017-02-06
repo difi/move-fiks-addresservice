@@ -16,42 +16,19 @@
 
 package main
 
-import no.difi.ks_svarut.domain.Organization
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.SpringApplication
+import no.difi.move.common.config.SpringCloudProtocolResolver
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.builder.SpringApplicationBuilder
 import org.springframework.context.annotation.Import
-import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
-import repositories.OrganizationRepository
 
 @SpringBootApplication
-@RestController
 @Import(value=Beans)
 class AddressServiceApplication {
-
-    @Autowired
-    OrganizationRepository organizationRepository
-
-    @RequestMapping(path = "organization/{identifier}", method = RequestMethod.GET)
-    ResponseEntity<Organization> getMapping(@PathVariable String identifier) {
-        def organization = organizationRepository.findOne(identifier)
-        if(!organization)
-            return new ResponseEntity<Organization>(HttpStatus.NOT_FOUND)
-        else {
-            return new ResponseEntity<Organization>(organization, HttpStatus.OK)
-        }
-    }
-
-    @RequestMapping(path = "organization/", method = RequestMethod.POST)
-    insertMapping(@RequestBody Organization organization) {
-        organizationRepository.save(organization)
-    }
-
-
     static void main(String[] args) throws Exception {
-        SpringApplication.run(AddressServiceApplication.class, args)
+
+        new SpringApplicationBuilder(AddressServiceApplication.class)
+                .initializers(new SpringCloudProtocolResolver())
+                .run(args)
     }
 
 }
