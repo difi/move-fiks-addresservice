@@ -8,7 +8,7 @@ Integrasjonspunkt. The application is a simple crud application exposed via a si
 It is intended to be used for routing messages to FIKS SvarUt but it can just as well be used for routing to other services. 
 
 ## Starting
-If you have built the jar you just be able to start the application with
+If you have built the jar you should be able to start the application with
 _java -jar move-fiks-adresse*.jar_
 
 Default ports: _9100_ and _9101_ (management)
