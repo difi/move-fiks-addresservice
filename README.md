@@ -9,9 +9,9 @@ It is intended to be used for routing messages to FIKS SvarUt but it can just as
 
 ## Starting
 If you have built the jar you just be able to start the application with
-java -jar move-fiks-adresse*.jar
+_java -jar move-fiks-adresse*.jar_
 
-Default ports: 9100 and 9101 (management)
+Default ports: _9100_ and _9101_ (management)
 
 ## Management
 The application uses actuator so that it can easily be studied/monitored/managed.
