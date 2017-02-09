@@ -11,6 +11,7 @@ import javax.persistence.ManyToOne
 class Organization {
     @Id
     String organizationId
+    String name
     URL url
 
     @ManyToOne
