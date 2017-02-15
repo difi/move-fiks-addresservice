@@ -19,7 +19,7 @@ class OrganizationController {
     @RequestMapping(path = "organization/{identifier}", method = RequestMethod.GET)
     ResponseEntity<Organization> getMapping(@PathVariable String identifier) {
         def organization = organizationRepository.findOne(identifier)
-        if(!organization)
+        if (!organization)
             return new ResponseEntity<Organization>(HttpStatus.NOT_FOUND)
         else {
             return new ResponseEntity<Organization>(organization, HttpStatus.OK)
@@ -30,5 +30,15 @@ class OrganizationController {
     insertMapping(@RequestBody Organization organization) {
         certificateRepository.findOne(organization.certificate.certificateId)
         organizationRepository.save(organization)
+    }
+
+    @DeleteMapping(path = "organization/{identifier}")
+    deleteMapping(@PathVariable String identifier) {
+        def mapping = organizationRepository.findOne(identifier)
+        if(mapping)
+            organizationRepository.delete(mapping)
+        else {
+            return new ResponseEntity<Organization>(HttpStatus.NOT_FOUND)
+        }
     }
 }
