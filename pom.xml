@@ -85,7 +85,7 @@
     <dependency>
       <groupId>no.difi.move-common</groupId>
       <artifactId>cloud</artifactId>
-      <version>1.0.9-SNAPSHOT</version>
+      <version>1.0.9</version>
     </dependency>
     <dependency>
       <groupId>org.projectlombok</groupId>

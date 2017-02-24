@@ -68,7 +68,7 @@ public class AddressServiceApplicationTests {
 	void testErrorPageDirectAccess() throws Exception {
 		@SuppressWarnings("rawtypes")
 		ResponseEntity<Map> entity = getRestTemplate().getForEntity(
-				"http://localhost:8080/error", Map.class)
+				"http://localhost:9100/error", Map.class)
 		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, entity.getStatusCode())
 		@SuppressWarnings("unchecked")
 		Map<String, Object> body = entity.getBody()
